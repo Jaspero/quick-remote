@@ -1,0 +1,40 @@
+{
+  "name": "@jaspero/quick-remote",
+  "version": "0.0.0-development",
+  "description": "Command line tool for quick set up of remotes",
+  "main": "index.js",
+  "bin": {
+    "qr": "./index.js"
+  },
+  "script": {
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaspero/quick-remote.git"
+  },
+  "keywords": [
+    "cmd",
+    "bash",
+    "node",
+    "git"
+  ],
+  "author": {
+    "name": "Jaspero Ltd",
+    "email": "info@jaspero.co"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaspero/quick-remote/issues"
+  },
+  "homepage": "https://github.com/Jaspero/quick-remote#readme",
+  "dependencies": {
+    "yargs": "^16.0.3"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "semantic-release": "17.1.2"
+  }
+}
