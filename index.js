@@ -75,7 +75,7 @@ y
 
       let source = s;
       let suffix = '';
-      if (clone === 'HTTPS') {
+      if ((clone || '').toLowerCase() === 'https') {
           source = 'https://github.com/';
           suffix = '.git';
       }
