@@ -51,17 +51,34 @@ y
             type: 'boolean',
             default: true
           }
-        ),
+        )
+        .option(
+          'c',
+          {
+            alias: 'clone',
+            describe: 'Which type of cloning to use (HTTPS, SSH)',
+            default: 'SSH'
+          }
+        )
+      ,
     async values => {
 
       const {
         remote,
         branch,
         project,
-        source,
+        s,
         name,
-        force
+        force,
+        clone
       } = values;
+
+      let source = s;
+      let suffix = '';
+      if (clone === 'HTTPS') {
+          source = 'https://github.com/';
+          suffix = '.git';
+      }
 
       let cwd = process.cwd();
 
@@ -72,7 +89,7 @@ y
 
       const remoteName = name || remote.split('/').pop();
 
-      await exec(`git remote add ${remoteName} ${source}${remote}`, {cwd});
+      await exec(`git remote add ${remoteName} ${source}${remote}${suffix}`, {cwd});
       await exec(`git fetch ${remoteName}`, {cwd});
 
       let merge = `git merge ${remoteName}/${branch}`;
